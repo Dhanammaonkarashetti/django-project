@@ -1,0 +1,9 @@
+<h2>Add Diet Plan</h2>
+<form method="post" action="{% url 'add_diet_plan' %}">
+    {% csrf_token %}
+    <label>Plan Name:</label>
+    <input type="text" name="plan_name" required><br>
+    <label>Description:</label><br>
+    <textarea name="description" rows="5" cols="40" required></textarea><br>
+    <button type="submit">Add Diet Plan</button>
+<form/>

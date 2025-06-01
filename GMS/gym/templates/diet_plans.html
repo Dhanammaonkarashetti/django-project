@@ -1,0 +1,21 @@
+<h2>Your Diet Plans</h2>
+<ul>
+    {% for plan in diet_plans %}
+        <li>
+            <strong>{{ plan.plan_name }}</strong>: {{ plan.description }} 
+            (Added on {{ plan.created_on }})
+        </li>
+    {% empty %}
+        <li>No diet plans found.</li>
+    {% endfor %}
+</ul>
+
+<h2>Add Diet Plan</h2>
+<form method="post" action="{% url 'add_diet_plan' %}">
+    {% csrf_token %}
+    <label>Plan Name:</label>
+    <input type="text" name="plan_name" required><br>
+    <label>Description:</label><br>
+    <textarea name="description" rows="5" cols="40" required></textarea><br>
+    <button type="submit">Add Diet Plan</button>
+</form>
